@@ -1,0 +1,35 @@
+<!-- In this tutorial we are designing a countdowm app calulating the count dowm till 2025 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Now we are going to design a project for countdown till 2025</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="countdown-container">
+        <div class="countdowm-timer" id="countdown"></div>
+        <div class="countdowm-label">until-2025</div>
+    </div>
+</body>
+<script>
+/*Javascript Section for Our Code*/
+const targetDate=new Date('2025-01-01T00:00:00');
+function updateCountdown(){
+    const currentDate=new Date();
+    const timeDifference=targetDate-currentDate;
+    console.log(timeDifference);
+    const days=Math.floor(timeDifference/(1000*60*60*24));
+    const hours=Math.floor(timeDifference%(1000*60*60*24)/(1000*60*60));
+    const minutes=Math.floor(timeDifference%(1000*60*60)/(1000*60));
+    const seconds=Math.floor(timeDifference%(1000*60)/1000);
+
+
+    document.getElementById('countdown').innerHTML=`${days}d ${hours}h ${minutes}m ${seconds}s`;
+    setTimeout(updateCountdown,1000);
+}
+updateCountdown();
+const timeDifference=targetDate-currentDate;
+</script>
+</html>
